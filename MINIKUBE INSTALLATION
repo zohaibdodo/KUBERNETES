@@ -12,9 +12,9 @@ Step 2: Install KVM or VirtualBox Hypervisor (You may skip if docker is installe
 
 Step 3: Download minikube
 
-#wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-#chmod +x minikube-linux-amd64
-#sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube-linux-amd64
+sudo mv minikube-linux-amd64 /usr/local/bin/minikube
 
 #minikube start
 
