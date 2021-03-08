@@ -22,11 +22,11 @@ minikube start
 
 Step 4: Install kubectl on Ubuntu / Debian:
 
-#sudo apt install curl
-#curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-#chmod +x ./kubectl
-#sudo mv ./kubectl /usr/local/bin/kubectl
-# kubectl version -o json 
+sudo apt install curl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version -o json
 
 Step 4: Install kubectl on Fedora / Redhat:
 
@@ -54,4 +54,4 @@ $ minikube delete
 Step 7: Enable Kubernetes Dashboard
 $ minikube addons list
 
-From <https://computingforgeeks.com/how-to-install-minikube-on-ubuntu-debian-linux/#ex1>
+https://computingforgeeks.com/how-to-install-minikube-on-ubuntu-debian-linux/#ex1
