@@ -1,0 +1,55 @@
+Step 1: Update system
+
+grep -E --color 'vmx|svm' /proc/cpuinfo
+
+sudo apt update
+sudo apt install apt-transport-https
+sudo apt upgrade -y
+
+Step 2: Install KVM or VirtualBox Hypervisor (You may skip if docker is installed)
+
+#sudo apt install virtualbox virtualbox-ext-pack
+
+Step 3: Download minikube
+
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube-linux-amd64
+sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+
+minikube start
+minikube version
+***************************************************************INSTALLATION ON UBUNTU*****************************************************************************
+sudo apt install curl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version -o json
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+***************************************************************INSTALLATION ON FEDORA********************************************************************************
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+sudo rpm -ivh minikube-latest.x86_64.rpm
+
+Step 6: Minikube Basic operations
+
+kubectl cluster-info
+
+To View Config, use:
+
+$ kubectl config view
+$ kubectl get nodes
+$ minikube ssh
+$ minikube stop
+$ minikube delete
+
+Step 7: Enable Kubernetes Dashboard
+$ minikube addons list
+
+https://computingforgeeks.com/how-to-install-minikube-on-ubuntu-debian-linux/#ex1
+
+**************************************************************INSTALLATION ON WINDOWS**************************************************************************************
+
+Minikube for Windows
+
+https://minikube.sigs.k8s.io/docs/start/
