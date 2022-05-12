@@ -4,7 +4,7 @@ systemctl start docker
 
 docker --verion
 
-su
+su - root
 sudo apt update && apt install -y apt-transport-https curl
 
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -18,7 +18,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 kubeadm version
 
-To initialize Cluster:
+##To initialize Cluster:
 
 kubeadm init
 
@@ -28,3 +28,12 @@ ERRORs:
 
 mkdir -p /etc/containerd && containerd config default > /etc/containerd/config.toml and then restart containerd
 systemctl restart containerd
+
+##To disable Swap:
+
+sudo swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
+##How to extract Join command:
+
+kubeadm token create --print-join-command
