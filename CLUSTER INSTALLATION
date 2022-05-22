@@ -1,28 +1,23 @@
+## To install Docker:
+
 sudo apt update && upgrade
 sudo apt install docker.io
 systemctl start docker
-
 docker --verion
-
 su - root
 sudo apt update && apt install -y apt-transport-https curl
-
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-
-
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
-
 kubeadm version
 
 ##To initialize Cluster:
 
 kubeadm init
 
-ERRORs:
+##ERRORs:
 
 [ERROR CRI]: container runtime is not running: output: time="15+05" level=fatal msg="getting status of runtime: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService"
 
