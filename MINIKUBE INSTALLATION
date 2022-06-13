@@ -8,7 +8,7 @@ sudo apt upgrade -y
 
 Step 2: Install KVM or VirtualBox Hypervisor (You may skip if docker is installed)
 
-#sudo apt install virtualbox virtualbox-ext-pack
+sudo apt install virtualbox virtualbox-ext-pack
 
 Step 3: Download minikube
 
