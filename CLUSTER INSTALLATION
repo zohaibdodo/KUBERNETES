@@ -15,8 +15,9 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 kubeadm version
 
-##To initialize Cluster:
+##To initialize Cluster: (TO BE RUN AS A ROOT)
 
+su - root
 kubeadm init
 
 ##ERRORs:
