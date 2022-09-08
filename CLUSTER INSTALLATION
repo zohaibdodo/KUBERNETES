@@ -1,7 +1,7 @@
 ## To install Docker:
 
 ####FOR UBUNTU####
-sudo apt update && upgrade
+sudo apt update && sudo apt upgrade -y
 sudo apt install docker.io
 systemctl start docker
 docker --verion
@@ -15,6 +15,11 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 kubeadm version
 
+##To disable Swap:
+
+sudo swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+
 ##To initialize Cluster: (TO BE RUN AS A ROOT)
 
 su - root
@@ -26,11 +31,6 @@ kubeadm init
 
 mkdir -p /etc/containerd && containerd config default > /etc/containerd/config.toml and then restart containerd
 systemctl restart containerd
-
-##To disable Swap:
-
-sudo swapoff -a
-sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
 ##How to extract Join command:
 
@@ -56,5 +56,3 @@ sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
 sudo systemctl enable --now kubelet
-
-
