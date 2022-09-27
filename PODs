@@ -1,3 +1,17 @@
 kubectl get pods -o wide
 
 kubectl explain pods
+
+kubectl run firstpod --generator=run-pod/v1 --image=coolgourav147/nginx-custom
+
+To check on which node pod is running
+
+kubectl get po -o wide
+
+To check apiVersion for yaml:
+
+kubectl explain pods    #resource name
+
+For Resource Name:
+
+kubectl api-resources

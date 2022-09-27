@@ -6,7 +6,6 @@ kubectl completion bash > kubecom.sh
 
 #source $HOME/.kube/kubecom.sh
 
-
 For every user:
 
 vi .profile and paste source $HOME/.kube/kubecom.sh
