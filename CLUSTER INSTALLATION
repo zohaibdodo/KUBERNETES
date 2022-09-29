@@ -5,7 +5,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install docker.io
 systemctl start docker
 docker --verion
+
 su - root
+
 sudo apt update && apt install -y apt-transport-https curl
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
