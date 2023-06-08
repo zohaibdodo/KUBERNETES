@@ -1,10 +1,12 @@
 Install Bash Completion:
 
-#apt-get install bash-completion
+sudo apt install bash-completion
 
 kubectl completion bash > kubecom.sh
 
-#source $HOME/.kube/kubecom.sh
+mv kubecom.sh .kube/
+
+source $HOME/.kube/kubecom.sh
 
 For every user:
 
