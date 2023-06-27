@@ -1,0 +1,5 @@
+It is easy to get started with generating YAML files for most of the resources with kubectl. You can use “ — dry-run=client -o yaml > yaml_file.yaml” flag on the “kubectl create” or “kubectl run” commands to generate most of the resources.
+
+For example, to generate a YAML file for an nginx pod you can run:
+
+kubectl run nginx — image=nginx — port=8080 — env=env=DEV — labels=app=nginx,owner=user — privileged=false — dry-run=client -oyaml > nginx-pod.yaml
