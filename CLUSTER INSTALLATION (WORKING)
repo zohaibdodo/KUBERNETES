@@ -1,5 +1,7 @@
 https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/
 
+
+
 Master Node:  		10.21.7.72 – k8smaster.example.net
 First Worker Node:  10.21.7.74 – k8sworker1.example.net
 Second Worker Node: 10.21.7.76 – k8sworker2.example.net
@@ -58,8 +60,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl cluster-info
 kubectl get nodes
 
-kubeadm join k8smaster.example.net:6443 --token 2596mo.mwuc6ekiqivjz2lk \
-        --discovery-token-ca-cert-hash sha256:c035fffb42aa4706db9ee1c84bc8ff6a3636a055c2d06cbcccfe456fd5a99968
+#kubeadm join k8smaster.example.net:6443 --token 2596mo.mwuc6ekiqivjz2lk --discovery-token-ca-cert-hash sha256:c035fffb42aa4706db9ee1c84bc8ff6a3636a055c2d06cbcccfe456fd5a99968
 		
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
 kubectl apply -f calico.yaml
