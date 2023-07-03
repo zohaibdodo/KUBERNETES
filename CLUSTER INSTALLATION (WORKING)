@@ -1,6 +1,6 @@
 https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/
 
-
+# STEP1) Set hostname and add entries in the hosts file
 
 Master Node:  		10.21.7.72 – k8smaster.example.net
 First Worker Node:  10.21.7.74 – k8sworker1.example.net
@@ -11,6 +11,8 @@ Add following entries in /etc/hosts file:
 10.21.7.72   k8smaster.example.net k8smaster
 10.21.7.74   k8sworker1.example.net k8sworker1
 10.21.7.76   k8sworker2.example.net k8sworker2
+
+# Step 2) Disable swap & add kernel settings
 
 sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
@@ -30,6 +32,8 @@ EOF
 
 sudo sysctl --system
 
+# Step 3) Install containerd run time
+
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
@@ -44,12 +48,18 @@ sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/c
 sudo systemctl restart containerd
 sudo systemctl enable containerd
 
+# Step 4) Add apt repository for Kubernetes
+
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+
+# Step 5) Install Kubernetes components Kubectl, kubeadm & kubelet
 
 sudo apt update
 sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
+
+# Step 6) Initialize Kubernetes cluster with Kubeadm command
 
 sudo kubeadm init --control-plane-endpoint=k8smaster.example.net
 
@@ -61,7 +71,11 @@ kubectl cluster-info
 kubectl get nodes
 
 #kubeadm join k8smaster.example.net:6443 --token 2596mo.mwuc6ekiqivjz2lk --discovery-token-ca-cert-hash sha256:c035fffb42aa4706db9ee1c84bc8ff6a3636a055c2d06cbcccfe456fd5a99968
-		
+
+# Step 7) Install Calico Pod Network Add-on
+
+-- kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
 kubectl apply -f calico.yaml
 
