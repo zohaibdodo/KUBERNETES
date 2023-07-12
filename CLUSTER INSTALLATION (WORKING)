@@ -2,15 +2,25 @@ https://www.linuxtechi.com/install-kubernetes-on-ubuntu-22-04/
 
 # STEP1) Set hostname and add entries in the hosts file
 
-Master Node:  		10.21.7.72 – k8smaster.example.net
-First Worker Node:  10.21.7.74 – k8sworker1.example.net
-Second Worker Node: 10.21.7.76 – k8sworker2.example.net
+Master Node:  		10.21.7.12 – k8smaster.example.net
+First Worker Node:  10.21.7.13 – k8sworker1.example.net
+Second Worker Node: 10.21.7.19 – k8sworker2.example.net
 
 Add following entries in /etc/hosts file:
 
-10.21.7.72   k8smaster.example.net k8smaster
-10.21.7.74   k8sworker1.example.net k8sworker1
-10.21.7.76   k8sworker2.example.net k8sworker2
+10.21.7.12   k8smaster.example.net k8smaster
+10.21.7.13   k8sworker1.example.net k8sworker1
+10.21.7.19   k8sworker2.example.net k8sworker2
+
+#MASTER
+sudo hostnamectl set-hostname "k8smaster.example.net"
+exec bash
+#WORKER1
+sudo hostnamectl set-hostname "k8sworker1.example.net"
+exec bash
+#WORKER2
+sudo hostnamectl set-hostname "k8sworker2.example.net"
+exec bash
 
 # Step 2) Disable swap & add kernel settings
 
@@ -28,7 +38,7 @@ sudo tee /etc/sysctl.d/kubernetes.conf <<EOF
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
-EOF 
+EOF
 
 sudo sysctl --system
 
@@ -74,7 +84,7 @@ kubectl get nodes
 
 # Step 7) Install Calico Pod Network Add-on
 
--- kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
 
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
 kubectl apply -f calico.yaml
