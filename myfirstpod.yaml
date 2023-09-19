@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: container1
-    image: aamirpinger/helloworld
+    image: zohaibdodo/my-first-pod
     ports:
     - containerPort: 80

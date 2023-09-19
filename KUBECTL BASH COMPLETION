@@ -1,13 +1,9 @@
-Install Bash Completion:
+# set up autocomplete in bash into the current shell, bash-completion package should be installed first.
 
 sudo apt install bash-completion
 
-kubectl completion bash > kubecom.sh
+source <(kubectl completion bash) 
 
-mv kubecom.sh .kube/
+# add autocomplete permanently to your bash shell.
 
-source $HOME/.kube/kubecom.sh
-
-For every user:
-
-vi .profile and paste source $HOME/.kube/kubecom.sh
+echo "source <(kubectl completion bash)" >> ~/.bashrc 

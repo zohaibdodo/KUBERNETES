@@ -1,0 +1,6 @@
+kubectl explain pod --recursive | less
+
+
+
+KubeShark
+MeltalLB
