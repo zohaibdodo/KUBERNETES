@@ -1,0 +1,9 @@
+Problem before K8s
+
+We cannot run two containers having same port
+
+Work around is use different port like :81
+
+kubectl run nginx --iamge=nginx --port=80
+
+www.github.com/praqma/network-multitool
