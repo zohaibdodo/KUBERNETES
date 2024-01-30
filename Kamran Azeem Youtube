@@ -7,3 +7,26 @@ Work around is use different port like :81
 kubectl run nginx --iamge=nginx --port=80
 
 www.github.com/praqma/network-multitool
+
+www.github.com/Praqma-training/kubernetes-katas								
+
+
+
+
+
+
+
+
+LoadBalancers:
+
+If we deploy LoadBalancer on VMs so Kubernetes don't know the Public IP or Front facing IP of your infra to tackle your traffic so you need MetalLB (Metal LoadBalancer).
+
+if you dont deploy metallb then kubernetes will setup either on cluster IP or NodePort.
+
+
+INgress:
+
+If you have multiple services then you will be in need of multiple LoadBalancers which may end up with shortage of IPs, ONly one ingress will controll all the LoadBalancers as you will be hit cost on seperate loadbalancers in cloud infrastructure.
+
+Traefic/Nginx/ etc
+
